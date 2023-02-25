@@ -42,6 +42,28 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Activity'
+  /api/activities/notification:
+    get:
+      description: 'Return a feed of activity for all those that I follow'
+      tags:
+        - activities
+      parameters:
+        - name: term
+          in: query
+          description: Search term used for full text search
+          required: true
+          schema:
+            type: string
+            example: "#100DaysOfCloud"
+      responses:
+        '200':
+          description: Returns an array of activities"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Activity'
   /api/activities:
     post:
       description: Create a new activitiy eg. Creating a Crud
