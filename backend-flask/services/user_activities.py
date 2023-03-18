@@ -24,13 +24,13 @@ class UserActivities:
     model['data'] = results
     
     # aws xray segment
-    xray_dict = {
-      "now": now.isoformat(),
-      "result-size": len(model['data'])
-    }
+    # xray_dict = {
+    #   "now": now.isoformat(),
+    #   "result-size": len(model['data'])
+    # }
 
-    segment = xray_recorder.begin_segment('user_activities')
-    subsegment = xray_recorder.begin_subsegment('mock_data')
-    subsegment.put_metadata('key', xray_dict, 'namespace')
+    # segment = xray_recorder.begin_segment('user_activities')
+    # subsegment = xray_recorder.begin_subsegment('mock_data')
+    # subsegment.put_metadata('key', xray_dict, 'namespace')
 
     return model
