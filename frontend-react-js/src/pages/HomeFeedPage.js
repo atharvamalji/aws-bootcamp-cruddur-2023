@@ -98,14 +98,21 @@ export default function HomeFeedPage() {
       .catch((err) => console.log(err));
   };
 
-  React.useEffect(() => {
-    //prevents double call
-    if (dataFetchedRef.current) return;
-    dataFetchedRef.current = true;
+  // React.useEffect(() => {
+  //   //prevents double call
+  //   if (dataFetchedRef.current) return;
+  //   dataFetchedRef.current = true;
 
+  //   loadData();
+  //   checkAuth();
+  // }, [])
+
+  // check when the page loads if we are authenicated
+  React.useEffect(() => {
     loadData();
     checkAuth();
   }, [])
+
 
   return (
     <article>
